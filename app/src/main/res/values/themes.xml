@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.GrowwSpotify" parent="Base.Theme.GrowwSpotify" />
+
+    <style name="searchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="boxStrokeColor">@android:color/black</item>
+        <item name="android:background">@android:color/background_light</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/black</item>
+    </style>
 </resources>

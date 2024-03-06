@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeFragment"
+    android:id="@+id/spotify_navigation_graph.xml">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.fenil.growwspotify.ui.fragments.HomeFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_playlistFragment"
+            app:destination="@id/playlistFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_albumFragment"
+            app:destination="@id/albumFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_artistFragment"
+            app:destination="@id/artistFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_trackFragment"
+            app:destination="@id/trackFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.fenil.growwspotify.ui.fragments.AlbumFragment"
+        android:label="Album Fragment"
+        tools:layout="@layout/fragment_album" />
+
+    <fragment
+        android:id="@+id/playlistFragment"
+        android:name="com.fenil.growwspotify.ui.fragments.PlaylistFragment"
+        android:label="Playlist Fragment"
+        tools:layout="@layout/fragment_playlist" />
+
+    <fragment
+        android:id="@+id/trackFragment"
+        android:name="com.fenil.growwspotify.ui.fragments.TrackFragment"
+        android:label="Track Fragment"
+        tools:layout="@layout/fragment_track" />
+
+    <fragment
+        android:id="@+id/artistFragment"
+        android:name="com.fenil.growwspotify.ui.fragments.ArtistFragment"
+        android:label="Artist Fragment"
+        tools:layout="@layout/fragment_artist" />
+
+</navigation>
