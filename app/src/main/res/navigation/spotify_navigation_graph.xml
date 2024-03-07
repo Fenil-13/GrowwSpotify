@@ -12,40 +12,72 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_playlistFragment"
-            app:destination="@id/playlistFragment" />
+            app:destination="@id/playlistFragment">
+            <argument
+                android:name="playlistItem"
+                app:argType="com.fenil.growwspotify.data.model.PlaylistItem" />
+        </action>
         <action
             android:id="@+id/action_homeFragment_to_albumFragment"
-            app:destination="@id/albumFragment" />
+            app:destination="@id/albumFragment">
+            <argument
+                android:name="albumItem"
+                app:argType="com.fenil.growwspotify.data.model.AlbumItem" />
+        </action>
         <action
             android:id="@+id/action_homeFragment_to_artistFragment"
-            app:destination="@id/artistFragment" />
+            app:destination="@id/artistFragment">
+            <argument
+                android:name="artistItem"
+                app:argType="com.fenil.growwspotify.data.model.ArtistItem" />
+        </action>
         <action
             android:id="@+id/action_homeFragment_to_trackFragment"
-            app:destination="@id/trackFragment" />
+            app:destination="@id/trackFragment">
+            <argument
+                android:name="trackItem"
+                app:argType="com.fenil.growwspotify.data.model.TrackItem" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/albumFragment"
         android:name="com.fenil.growwspotify.ui.fragments.AlbumFragment"
         android:label="Album Fragment"
-        tools:layout="@layout/fragment_album" />
+        tools:layout="@layout/fragment_album">
+        <argument
+            android:name="albumItem"
+            app:argType="com.fenil.growwspotify.data.model.AlbumItem" />
+    </fragment>
 
     <fragment
         android:id="@+id/playlistFragment"
         android:name="com.fenil.growwspotify.ui.fragments.PlaylistFragment"
         android:label="Playlist Fragment"
-        tools:layout="@layout/fragment_playlist" />
+        tools:layout="@layout/fragment_playlist" >
+        <argument
+            android:name="playlistItem"
+            app:argType="com.fenil.growwspotify.data.model.PlaylistItem" />
+    </fragment>
 
     <fragment
         android:id="@+id/trackFragment"
         android:name="com.fenil.growwspotify.ui.fragments.TrackFragment"
         android:label="Track Fragment"
-        tools:layout="@layout/fragment_track" />
+        tools:layout="@layout/fragment_track" >
+        <argument
+            android:name="trackItem"
+            app:argType="com.fenil.growwspotify.data.model.TrackItem" />
+    </fragment>
 
     <fragment
         android:id="@+id/artistFragment"
         android:name="com.fenil.growwspotify.ui.fragments.ArtistFragment"
         android:label="Artist Fragment"
-        tools:layout="@layout/fragment_artist" />
+        tools:layout="@layout/fragment_artist" >
+        <argument
+            android:name="artistItem"
+            app:argType="com.fenil.growwspotify.data.model.ArtistItem" />
+    </fragment>
 
 </navigation>
