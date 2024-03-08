@@ -23,9 +23,9 @@ class AppPreferences @Inject constructor(val context: Context) {
     fun hasTokenExpired(): Boolean {
         val currentTime = Calendar.getInstance().timeInMillis
         val lastSavedTokenTime = sharedPreferences.getLong(LAST_SAVED_TOKEN_TIME_KEY, 0)
-        val oneHourInMillis = sharedPreferences.getLong(EXPIRE_TIME, 60 * 60 * 1000 ) // 1 hour in milliseconds default
+        val expireTime = sharedPreferences.getInt(EXPIRE_TIME, 60 * 60 ) // 1 hour
 
-        return currentTime - lastSavedTokenTime >= oneHourInMillis
+        return currentTime - lastSavedTokenTime >= expireTime * 1000
     }
 
     fun getAuthToken(): String {

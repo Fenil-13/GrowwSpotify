@@ -1,8 +1,8 @@
-package com.fenil.growwspotify.ui.adapters
+package com.fenil.growwspotify.ui.views
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fenil.growwspotify.data.model.AlbumItem
+import com.fenil.growwspotify.data.remote.model.AlbumItem
 import com.fenil.growwspotify.databinding.ItemAlbumBinding
 
 class AlbumViewHolder(private val binding: ItemAlbumBinding, val onItemClick: (position: Any) -> Unit) :

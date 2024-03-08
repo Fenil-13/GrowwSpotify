@@ -1,6 +1,7 @@
-package com.fenil.growwspotify.data.model
+package com.fenil.growwspotify.data.remote.model
 
 import android.os.Parcelable
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 

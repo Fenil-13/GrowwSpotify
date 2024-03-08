@@ -1,8 +1,8 @@
-package com.fenil.growwspotify.ui.adapters
+package com.fenil.growwspotify.ui.views
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fenil.growwspotify.data.model.TrackItem
+import com.fenil.growwspotify.data.remote.model.TrackItem
 import com.fenil.growwspotify.databinding.ItemTrackBinding
 
 class TrackViewHolder(private val binding: ItemTrackBinding,val onItemClick: (position: Any) -> Unit) :
@@ -17,6 +17,7 @@ class TrackViewHolder(private val binding: ItemTrackBinding,val onItemClick: (po
         binding.tvAlbumName.text = track.album?.name.orEmpty()
         binding.tvReleaseDate.text = track.album?.releaseDate.orEmpty()
 
-        Glide.with(binding.root.context).load(track.album?.images?.firstOrNull()?.url).into(binding.imageViewAlbum)
+        val imageUrl = track.thumbnail ?: track.album?.images?.firstOrNull()?.url
+        Glide.with(binding.root.context).load(imageUrl ?: "").into(binding.imageViewAlbum)
     }
 }

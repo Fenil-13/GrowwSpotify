@@ -3,21 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_input_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Search Song, Album, Artist, Playlist"
+        android:hint="Type here"
         android:elevation="8dp"
-        style="@style/searchViewStyle"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stepper">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="#212020"
         app:tabMode="fixed"
         app:tabGravity="fill"/>
 
@@ -25,6 +41,7 @@
         android:id="@+id/vpContent"
         android:layout_width="match_parent"
         android:layout_weight="1"
+        android:background="@color/white"
         android:layout_height="0dp"/>
 
 </LinearLayout>

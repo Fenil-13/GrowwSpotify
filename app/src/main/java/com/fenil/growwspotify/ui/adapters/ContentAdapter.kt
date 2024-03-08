@@ -4,14 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.fenil.growwspotify.data.model.AlbumItem
-import com.fenil.growwspotify.data.model.ArtistItem
-import com.fenil.growwspotify.data.model.PlaylistItem
-import com.fenil.growwspotify.data.model.TrackItem
+import com.fenil.growwspotify.data.remote.model.AlbumItem
+import com.fenil.growwspotify.data.remote.model.ArtistItem
+import com.fenil.growwspotify.data.remote.model.PlaylistItem
+import com.fenil.growwspotify.data.remote.model.TrackItem
 import com.fenil.growwspotify.databinding.ItemAlbumBinding
 import com.fenil.growwspotify.databinding.ItemArtistBinding
 import com.fenil.growwspotify.databinding.ItemPlaylistBinding
 import com.fenil.growwspotify.databinding.ItemTrackBinding
+import com.fenil.growwspotify.ui.views.AlbumViewHolder
+import com.fenil.growwspotify.ui.views.ArtistViewHolder
+import com.fenil.growwspotify.ui.views.PlaylistViewHolder
+import com.fenil.growwspotify.ui.views.TrackViewHolder
 
 class ContentAdapter(
     private val items: MutableList<Any>,
@@ -47,7 +51,6 @@ class ContentAdapter(
                 ItemPlaylistBinding.inflate(inflater, parent, false),
                 onItemClick
             )
-
             else -> throw IllegalArgumentException("Invalid view type")
         }
     }

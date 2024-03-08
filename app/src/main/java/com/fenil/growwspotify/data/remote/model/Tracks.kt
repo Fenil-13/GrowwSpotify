@@ -1,15 +1,16 @@
-package com.fenil.growwspotify.data.model
+package com.fenil.growwspotify.data.remote.model
+
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Albums(
+data class Tracks(
     @SerializedName("href")
     val href: String?,
     @SerializedName("items")
-    var items: List<AlbumItem>?,
+    var items: List<TrackItem>?,
     @SerializedName("limit")
     val limit: Int?,
     @SerializedName("next")

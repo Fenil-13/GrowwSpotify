@@ -1,13 +1,19 @@
 package com.fenil.growwspotify.di
 
-import com.fenil.growwspotify.data.api.SpotifyAccountApiService
-import com.fenil.growwspotify.data.interceptor.AuthInterceptor
-import com.fenil.growwspotify.data.api.SpotifyApiService
+import android.content.Context
+import androidx.room.Room
+import com.fenil.growwspotify.data.local.AppDatabase
+import com.fenil.growwspotify.data.local.dao.SpotifyDao
+import com.fenil.growwspotify.data.remote.api.SpotifyAccountApiService
+import com.fenil.growwspotify.data.remote.interceptor.AuthInterceptor
+import com.fenil.growwspotify.data.remote.api.SpotifyApiService
+import com.fenil.growwspotify.utils.Constants
 import com.fenil.growwspotify.utils.Constants.ACCOUNT_BASE_URL
 import com.fenil.growwspotify.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -27,6 +33,13 @@ class AppModule {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+    @Provides
+    @Singleton
+    fun provideSpotifyDao(@ApplicationContext context: Context): SpotifyDao =
+        Room.databaseBuilder(context, AppDatabase::class.java, Constants.DATABASE_NAME)
+            .build()
+            .spotifyDao()
 
     @Provides
     @Singleton

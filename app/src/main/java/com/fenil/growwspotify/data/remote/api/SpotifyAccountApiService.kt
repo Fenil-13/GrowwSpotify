@@ -1,6 +1,6 @@
-package com.fenil.growwspotify.data.api
+package com.fenil.growwspotify.data.remote.api
 
-import com.fenil.growwspotify.data.model.AccessTokenResponse
+import com.fenil.growwspotify.data.remote.model.AccessTokenResponse
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Field

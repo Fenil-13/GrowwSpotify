@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.fenil.growwspotify.R
-import com.fenil.growwspotify.data.model.AlbumItem
+import com.fenil.growwspotify.data.remote.model.AlbumItem
 import com.fenil.growwspotify.databinding.FragmentAlbumBinding
 
 class AlbumFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.fenil.growwspotify.data.model
+package com.fenil.growwspotify.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 

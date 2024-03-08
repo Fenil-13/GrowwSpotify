@@ -1,7 +1,10 @@
-package com.fenil.growwspotify.data.model
+package com.fenil.growwspotify.data.remote.model
 
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.Relation
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -34,5 +37,7 @@ data class TrackItem(
     @SerializedName("type")
     val type: String?,
     @SerializedName("uri")
-    val uri: String?
+    val uri: String?,
+    @SerializedName("thumbnail")
+    val thumbnail: String?
 ): Parcelable

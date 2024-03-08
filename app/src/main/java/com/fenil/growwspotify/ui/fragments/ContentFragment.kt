@@ -1,7 +1,6 @@
 package com.fenil.growwspotify.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,8 +57,8 @@ class ContentFragment : Fragment() {
     private fun observeViewModels() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                spotifyViewModel.searchResultStateFlow.collect{
-                    val dataList : List<Any>? = when(fragmentType){
+                spotifyViewModel.searchResultStateFlow.collect {
+                    val dataList: List<Any>? = when (fragmentType) {
                         Constants.SONGS -> it?.tracks?.items
                         Constants.ALBUMS -> it?.albums?.items
                         Constants.PLAYLISTS -> it?.playlists?.items
@@ -67,47 +66,47 @@ class ContentFragment : Fragment() {
                         else -> null
                     }
                     dataList?.let { albumData ->
-                        if (albumData.isEmpty()){
-                            Log.d("ContentFragment", "observeViewModels: searchResultStateFlow received empty")
+                        if (albumData.isEmpty()) {
                             binding.tvError.isVisible = true
                             binding.tvError.text = "No $fragmentType found"
                             binding.rvContent.isVisible = false
                             binding.loadingProgressBar.isVisible = false
                             binding.tvHeading.isVisible = false
-                        }else{
-                            Log.d("ContentFragment", "observeViewModels: searchResultStateFlow received non empty")
+                        } else {
                             binding.rvContent.isVisible = true
                             binding.tvError.isVisible = false
                             binding.loadingProgressBar.isVisible = false
                             binding.tvHeading.isVisible = false
                             contentAdapter.updateData(albumData)
                         }
-                    } ?: kotlin.run{
+                    } ?: kotlin.run {
                         contentAdapter.clearList()
                     }
                 }
             }
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                spotifyViewModel.loadingState.collect{
-                    Log.d("ContentFragment", "observeViewModels: loadingState $it")
-                    binding.loadingProgressBar.isVisible = it
-                    if (it){
-                        binding.rvContent.isVisible = false
-                        binding.tvError.isVisible = false
-                        binding.tvHeading.isVisible = false
-                    }
-                }
+        }
+
+        spotifyViewModel.loadingState.observe(viewLifecycleOwner){
+            if (it){
+                binding.rvContent.isVisible = false
+                binding.tvError.isVisible = false
+                binding.tvHeading.isVisible = false
             }
+            binding.loadingProgressBar.isVisible = it
+        }
+        spotifyViewModel.errorState.observe(viewLifecycleOwner){
+            if (it.isNotEmpty()){
+                binding.tvHeading.isVisible = false
+                binding.rvContent.isVisible = false
+                binding.loadingProgressBar.isVisible = false
+                binding.tvError.isVisible = true
+                binding.tvError.text = it
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
-                spotifyViewModel.errorState.collect{
-                    Log.d("ContentFragment", "observeViewModels: errorState $it")
-                    if (it.isNotEmpty()){
-                        binding.tvHeading.isVisible = false
-                        binding.rvContent.isVisible = false
-                        binding.loadingProgressBar.isVisible = false
-                        binding.tvError.isVisible = true
-                        binding.tvError.text = it
-                    }
+                spotifyViewModel.offlineMode.collect{
+                    binding.tvNoInternet.isVisible = it
                 }
             }
         }
@@ -118,7 +117,7 @@ class ContentFragment : Fragment() {
             mutableListOf(),
             onItemClick = {
                 lifecycleScope.launch {
-                    spotifyViewModel.navigateToDetailsPageTrigger.emit(it)
+                    spotifyViewModel.clickEvent.postValue(it)
                 }
             }
         )

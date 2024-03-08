@@ -1,7 +1,7 @@
-package com.fenil.growwspotify.data.interceptor
+package com.fenil.growwspotify.data.remote.interceptor
 
 import android.content.Context
-import com.fenil.growwspotify.data.api.SpotifyAccountApiService
+import com.fenil.growwspotify.data.remote.api.SpotifyAccountApiService
 import com.fenil.growwspotify.utils.AppPreferences
 import com.fenil.growwspotify.utils.Constants
 import dagger.hilt.android.qualifiers.ApplicationContext

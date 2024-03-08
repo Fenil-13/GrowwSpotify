@@ -8,14 +8,15 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import com.fenil.growwspotify.data.model.AlbumItem
-import com.fenil.growwspotify.data.model.ArtistItem
-import com.fenil.growwspotify.data.model.PlaylistItem
-import com.fenil.growwspotify.data.model.TrackItem
+import com.fenil.growwspotify.data.remote.model.AlbumItem
+import com.fenil.growwspotify.data.remote.model.ArtistItem
+import com.fenil.growwspotify.data.remote.model.PlaylistItem
+import com.fenil.growwspotify.data.remote.model.TrackItem
 import com.fenil.growwspotify.databinding.ActivityMainBinding
 import com.fenil.growwspotify.ui.fragments.HomeFragmentDirections
 import com.fenil.growwspotify.ui.viewmodels.SpotifyViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.forEach
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -32,12 +33,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeViewModels() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                spotifyViewModel.navigateToDetailsPageTrigger.collect {
-                    it?.let { navigateToDetailPage(it) }
-                }
-            }
+        spotifyViewModel.clickActionEventStream.observe(this) {
+            it?.let { navigateToDetailPage(it) }
         }
     }
 

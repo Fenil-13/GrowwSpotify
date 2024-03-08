@@ -6,6 +6,7 @@ object Constants {
     const val CLIENT_ID = ""
     const val CLIENT_SECRET = ""
     const val GRANT_TYPE = "client_credentials"
+    const val DATABASE_NAME = "groww-spotify-db"
 
     // TabConstants.kt
     const val SONGS = "Songs"

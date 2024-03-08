@@ -1,8 +1,8 @@
-package com.fenil.growwspotify.ui.adapters
+package com.fenil.growwspotify.ui.views
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fenil.growwspotify.data.model.PlaylistItem
+import com.fenil.growwspotify.data.remote.model.PlaylistItem
 import com.fenil.growwspotify.databinding.ItemPlaylistBinding
 
 class PlaylistViewHolder(

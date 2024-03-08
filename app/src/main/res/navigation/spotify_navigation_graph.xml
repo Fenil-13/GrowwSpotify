@@ -15,28 +15,28 @@
             app:destination="@id/playlistFragment">
             <argument
                 android:name="playlistItem"
-                app:argType="com.fenil.growwspotify.data.model.PlaylistItem" />
+                app:argType="com.fenil.growwspotify.data.remote.model.PlaylistItem" />
         </action>
         <action
             android:id="@+id/action_homeFragment_to_albumFragment"
             app:destination="@id/albumFragment">
             <argument
                 android:name="albumItem"
-                app:argType="com.fenil.growwspotify.data.model.AlbumItem" />
+                app:argType="com.fenil.growwspotify.data.remote.model.AlbumItem" />
         </action>
         <action
             android:id="@+id/action_homeFragment_to_artistFragment"
             app:destination="@id/artistFragment">
             <argument
                 android:name="artistItem"
-                app:argType="com.fenil.growwspotify.data.model.ArtistItem" />
+                app:argType="com.fenil.growwspotify.data.remote.model.ArtistItem" />
         </action>
         <action
             android:id="@+id/action_homeFragment_to_trackFragment"
             app:destination="@id/trackFragment">
             <argument
                 android:name="trackItem"
-                app:argType="com.fenil.growwspotify.data.model.TrackItem" />
+                app:argType="com.fenil.growwspotify.data.remote.model.TrackItem" />
         </action>
     </fragment>
 
@@ -47,7 +47,7 @@
         tools:layout="@layout/fragment_album">
         <argument
             android:name="albumItem"
-            app:argType="com.fenil.growwspotify.data.model.AlbumItem" />
+            app:argType="com.fenil.growwspotify.data.remote.model.AlbumItem" />
     </fragment>
 
     <fragment
@@ -57,7 +57,7 @@
         tools:layout="@layout/fragment_playlist" >
         <argument
             android:name="playlistItem"
-            app:argType="com.fenil.growwspotify.data.model.PlaylistItem" />
+            app:argType="com.fenil.growwspotify.data.remote.model.PlaylistItem" />
     </fragment>
 
     <fragment
@@ -67,7 +67,7 @@
         tools:layout="@layout/fragment_track" >
         <argument
             android:name="trackItem"
-            app:argType="com.fenil.growwspotify.data.model.TrackItem" />
+            app:argType="com.fenil.growwspotify.data.remote.model.TrackItem" />
     </fragment>
 
     <fragment
@@ -77,7 +77,7 @@
         tools:layout="@layout/fragment_artist" >
         <argument
             android:name="artistItem"
-            app:argType="com.fenil.growwspotify.data.model.ArtistItem" />
+            app:argType="com.fenil.growwspotify.data.remote.model.ArtistItem" />
     </fragment>
 
 </navigation>

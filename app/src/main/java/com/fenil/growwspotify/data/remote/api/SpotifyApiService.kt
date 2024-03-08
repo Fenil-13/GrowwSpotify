@@ -1,6 +1,6 @@
-package com.fenil.growwspotify.data.api
+package com.fenil.growwspotify.data.remote.api
 
-import com.fenil.growwspotify.data.model.SpotifyResponse
+import com.fenil.growwspotify.data.remote.model.SpotifyResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

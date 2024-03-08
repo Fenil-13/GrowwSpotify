@@ -4,12 +4,17 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
+    id("androidx.room")
     kotlin("kapt")
 }
 
 android {
     namespace = "com.fenil.growwspotify"
     compileSdk = 34
+
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 
     defaultConfig {
         applicationId = "com.fenil.growwspotify"
@@ -68,6 +73,13 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:2.48")
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
 }
 
 
